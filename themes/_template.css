@@ -1,0 +1,34 @@
+/* ==========================================================================
+   Lichtgewicht gemeentethema — SJABLOON
+   --------------------------------------------------------------------------
+   Kopieer dit bestand naar <gemeente>.css en vul de waarden in. Laat weg wat
+   je niet nodig hebt; alles heeft een verstandige standaard in app-contract.css.
+   Laad dit ná app-contract.css.
+   ========================================================================== */
+
+:root {
+  /* Lettertypen */
+  --brand-font-body: ; /* bv. "Rijksoverheid Sans", system-ui, sans-serif */
+  --brand-font-heading: ; /* leeg = zelfde als body */
+
+  /* Primaire merkkleur (knoppen, nadruk) */
+  --brand-primary: ; /* bv. #154273 */
+  --brand-primary-dark: ; /* donkerdere tint voor hover/active; leeg = zelfde */
+  --brand-on-primary: ; /* tekstkleur óp primair; leeg = #ffffff */
+
+  /* Secundaire merkkleur (links, accenten) */
+  --brand-secondary: ; /* bv. #d52b1e */
+  --brand-secondary-dark: ;
+
+  /* Neutralen */
+  --brand-text: ; /* tekstkleur; leeg = bijna-zwart */
+  --brand-bg: ; /* paginakleur; leeg = wit */
+  --brand-border: ; /* randkleur */
+
+  /* Focus (toegankelijkheid — laat dit goed zichtbaar) */
+  --brand-focus: ;
+  --brand-focus-bg: ;
+
+  /* Vorm */
+  --brand-border-radius: ; /* bv. 0 voor scherp, 8px voor rond */
+}

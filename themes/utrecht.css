@@ -1,0 +1,21 @@
+/* ==========================================================================
+   Lichtgewicht gemeentethema — Gemeente Utrecht (voorbeeld)
+   --------------------------------------------------------------------------
+   Dit is het ENIGE wat een gemeente hoeft te schrijven om de app te thematiseren.
+   Geen componenten, geen 14.000 regels — alleen de merkessentie.
+   Laad dit ná app-contract.css.
+   ========================================================================== */
+
+:root {
+  --brand-font-body: "Lucida Grande", system-ui, sans-serif;
+  --brand-font-heading: "Lucida Grande", system-ui, sans-serif;
+
+  /* Utrecht-rood voor primaire acties; geen aparte donkere tint nodig */
+  --brand-primary: #cc0100;
+
+  /* Utrecht-blauw voor links */
+  --brand-secondary: #24578f;
+
+  /* Scherpe hoeken */
+  --brand-border-radius: 0;
+}

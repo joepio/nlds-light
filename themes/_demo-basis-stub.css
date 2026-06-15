@@ -1,0 +1,24 @@
+/* ==========================================================================
+   DEMO — een "officieel NLDS Basis-thema" zoals een gemeente dat zou leveren.
+   --------------------------------------------------------------------------
+   Let op: dit zet ALLEEN --basis-* (geen --brand-*). Het bewijst dat de app
+   een echt NLDS-thema automatisch oppakt via laag 2 van de fallback-keten.
+   (Een echt thema zet honderden --basis-tokens; hier een handvol als bewijs.)
+   ========================================================================== */
+
+:root {
+  --basis-text-font-family-default: Georgia, "Times New Roman", serif;
+  --basis-heading-font-family: Georgia, "Times New Roman", serif;
+
+  --basis-color-action-1-bg-default: #2d7d46; /* groene gemeente */
+  --basis-color-action-1-bg-hover: #1f5a32;
+  --basis-color-action-1-color-default: #ffffff;
+
+  --basis-color-action-2-bg-default: #006b6b;
+
+  --basis-color-default-color-default: #1a1a1a;
+  --basis-color-default-bg-default: #f4f7f4;
+  --basis-color-default-border-default: #9bbfa6;
+
+  --basis-border-radius-md: 14px;
+}

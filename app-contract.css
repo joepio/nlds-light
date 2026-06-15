@@ -1,0 +1,51 @@
+/* ==========================================================================
+   App-contract  —  de ~14 variabelen die JOUW componenten lezen
+   --------------------------------------------------------------------------
+   Dit bestand levert je app mee. Je eigen componenten gebruiken UITSLUITEND
+   deze --color-* / --font-* / --border-radius-variabelen. Ze kennen de
+   NLDS-namen niet; dit is de enige plek waar die voorkomen.
+
+   Elke variabele heeft een fallback-keten:
+       1. een lichtgewicht brand-override   (--brand-*, door de gemeente gezet)
+       2. de officiële NLDS Basis-token      (--basis-*, als de gemeente een
+                                              NLDS-thema meelevert)
+       3. een hardcoded standaardwaarde      (zodat de app altijd werkt)
+
+   Laadvolgorde in je <head>:
+       app-contract.css            (dit bestand)
+       <gemeente-thema>.css        (optioneel — zet --brand-* of --basis-*)
+
+   Omdat het gemeentethema NÁ dit bestand laadt, wint een expliciete
+   --brand-*-waarde altijd; levert de gemeente in plaats daarvan een volledig
+   NLDS Basis-thema, dan pakt laag 2 dat automatisch op.
+
+   LET OP: de --basis-* tokens komen uit @nl-design-system-unstable/* — de
+   namen kunnen nog wijzigen. Dit bestand is de ENIGE plek die je dan aanpast.
+   ========================================================================== */
+
+:root {
+  /* --- Typografie ------------------------------------------------------- */
+  --font-body: var(--brand-font-body, var(--basis-text-font-family-default, system-ui, sans-serif));
+  --font-heading: var(--brand-font-heading, var(--basis-heading-font-family, var(--font-body)));
+
+  /* --- Primaire merkkleur (knoppen, nadruk) ---------------------------- */
+  --color-primary: var(--brand-primary, var(--basis-color-action-1-bg-default, #154273));
+  --color-primary-dark: var(--brand-primary-dark, var(--basis-color-action-1-bg-hover, var(--color-primary)));
+  --color-on-primary: var(--brand-on-primary, var(--basis-color-action-1-color-default, #ffffff));
+
+  /* --- Secundaire merkkleur (links, accenten) -------------------------- */
+  --color-secondary: var(--brand-secondary, var(--basis-color-action-2-bg-default, #24578f));
+  --color-secondary-dark: var(--brand-secondary-dark, var(--basis-color-action-2-bg-hover, var(--color-secondary)));
+
+  /* --- Neutralen (tekst, achtergrond, randen) -------------------------- */
+  --color-text: var(--brand-text, var(--basis-color-default-color-default, #1a1a1a));
+  --color-bg: var(--brand-bg, var(--basis-color-default-bg-default, #ffffff));
+  --color-border: var(--brand-border, var(--basis-color-default-border-default, #b3b3b3));
+
+  /* --- Focus (toegankelijkheid — laat dit zichtbaar) ------------------- */
+  --color-focus: var(--brand-focus, var(--basis-focus-color, #1a1a1a));
+  --color-focus-bg: var(--brand-focus-bg, var(--basis-focus-background-color, #ffe600));
+
+  /* --- Vorm ------------------------------------------------------------ */
+  --border-radius: var(--brand-border-radius, var(--basis-border-radius-md, 4px));
+}
