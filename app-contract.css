@@ -1,51 +1,56 @@
 /* ==========================================================================
-   App-contract  —  de ~14 variabelen die JOUW componenten lezen
+   App-contract  —  de variabelen die JOUW componenten lezen
    --------------------------------------------------------------------------
-   Dit bestand levert je app mee. Je eigen componenten gebruiken UITSLUITEND
-   deze --color-* / --font-* / --border-radius-variabelen. Ze kennen de
-   NLDS-namen niet; dit is de enige plek waar die voorkomen.
+   Je eigen componenten gebruiken UITSLUITEND deze color-, font- en
+   border-radius-variabelen. Ze kennen de NLDS-namen niet; dit is de ENIGE
+   plek waar die voorkomen.
 
    Elke variabele heeft een fallback-keten:
-       1. een lichtgewicht brand-override   (--brand-*, door de gemeente gezet)
-       2. de officiële NLDS Basis-token      (--basis-*, als de gemeente een
-                                              NLDS-thema meelevert)
-       3. een hardcoded standaardwaarde      (zodat de app altijd werkt)
+       1. --brand-*    lichtgewicht huisstijl-override (door de gemeente gezet)
+       2. --basis-*    officiële NLDS Basis-token (als de gemeente een NLDS-thema levert)
+       3. hardcoded    veilige standaard (Rijkshuisstijl)
 
-   Laadvolgorde in je <head>:
-       app-contract.css            (dit bestand)
-       <gemeente-thema>.css        (optioneel — zet --brand-* of --basis-*)
+   Laad dit bestand eerst, daarna optioneel een gemeentethema. Een expliciete
+   --brand-* wint; levert de gemeente alleen --basis-*, dan pakt laag 2 het op.
 
-   Omdat het gemeentethema NÁ dit bestand laadt, wint een expliciete
-   --brand-*-waarde altijd; levert de gemeente in plaats daarvan een volledig
-   NLDS Basis-thema, dan pakt laag 2 dat automatisch op.
-
-   LET OP: de --basis-* tokens komen uit @nl-design-system-unstable/* — de
-   namen kunnen nog wijzigen. Dit bestand is de ENIGE plek die je dan aanpast.
+   15 tokens mappen op de officiële NLDS Basis-laag (interoperabel);
+   --color-accent (pop), --color-footer en --color-panel zijn bewuste extensies
+   zonder eenduidig NLDS-equivalent.
    ========================================================================== */
 
 :root {
-  /* --- Typografie ------------------------------------------------------- */
-  --font-body: var(--brand-font-body, var(--basis-text-font-family-default, system-ui, sans-serif));
+  --font-body: var(--brand-font-body, var(--basis-text-font-family-default, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif));
   --font-heading: var(--brand-font-heading, var(--basis-heading-font-family, var(--font-body)));
 
-  /* --- Primaire merkkleur (knoppen, nadruk) ---------------------------- */
+  /* Primair: knoppen, koppen, actieve nav */
   --color-primary: var(--brand-primary, var(--basis-color-action-1-bg-default, #154273));
-  --color-primary-dark: var(--brand-primary-dark, var(--basis-color-action-1-bg-hover, var(--color-primary)));
+  --color-primary-dark: var(--brand-primary-dark, var(--basis-color-action-1-bg-hover, #0b3060));
   --color-on-primary: var(--brand-on-primary, var(--basis-color-action-1-color-default, #ffffff));
 
-  /* --- Secundaire merkkleur (links, accenten) -------------------------- */
-  --color-secondary: var(--brand-secondary, var(--basis-color-action-2-bg-default, #24578f));
-  --color-secondary-dark: var(--brand-secondary-dark, var(--basis-color-action-2-bg-hover, var(--color-secondary)));
+  /* Secundair: links + rij-tekst */
+  --color-secondary: var(--brand-secondary, var(--basis-color-action-2-bg-default, #154273));
 
-  /* --- Neutralen (tekst, achtergrond, randen) -------------------------- */
-  --color-text: var(--brand-text, var(--basis-color-default-color-default, #1a1a1a));
-  --color-bg: var(--brand-bg, var(--basis-color-default-bg-default, #ffffff));
-  --color-border: var(--brand-border, var(--basis-color-default-border-default, #b3b3b3));
+  /* Tekst / pagina / paneel */
+  --color-text: var(--brand-text, var(--basis-color-default-color-default, #3b3b3b));
+  --color-muted: var(--brand-muted, var(--basis-color-default-color-subtle, #595959));
+  --color-page: var(--brand-page, var(--basis-color-default-bg-default, #f3f3f3));
+  --color-panel: var(--brand-panel, #ffffff); /* verhoogd wit vlak — extensie */
+  --color-soft: var(--brand-soft, var(--basis-color-action-1-bg-subtle, #e5eff7));
+  --color-hover: var(--brand-hover, var(--color-soft));
+  --color-border: var(--brand-border, var(--basis-color-default-border-default, #b4b4b4));
+  --color-border-soft: var(--brand-border-soft, var(--basis-color-default-border-subtle, #e0e0e0));
 
-  /* --- Focus (toegankelijkheid — laat dit zichtbaar) ------------------- */
-  --color-focus: var(--brand-focus, var(--basis-focus-color, #1a1a1a));
+  /* Pop/accent — ALLEEN voor zeer belangrijke UI (notificatie-teller). Extensie. */
+  --color-accent: var(--brand-accent, #d74085);
+  --color-on-accent: var(--brand-on-accent, #ffffff);
+
+  /* Footer-achtergrond — extensie */
+  --color-footer: var(--brand-footer, #535353);
+
+  /* Focus */
+  --color-focus: var(--brand-focus, var(--basis-focus-color, #154273));
   --color-focus-bg: var(--brand-focus-bg, var(--basis-focus-background-color, #ffe600));
 
-  /* --- Vorm ------------------------------------------------------------ */
-  --border-radius: var(--brand-border-radius, var(--basis-border-radius-md, 4px));
+  /* Vorm */
+  --border-radius: var(--brand-border-radius, var(--basis-border-radius-md, 2px));
 }

@@ -4,108 +4,151 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Lichtgewicht NLDS-thema — demo</title>
-
-    <!-- 1. App-contract: levert je app altijd mee -->
+    <!-- 1. App-contract: de variabelen die de componenten lezen -->
     <link rel="stylesheet" href="./app-contract.css" />
-    <!-- 2. Gemeentethema: omschakelbaar via de keuzelijst hieronder -->
+    <!-- 2. Componenten (lezen alleen het contract) -->
+    <link rel="stylesheet" href="./demo.css" />
+    <!-- 3. Gemeentethema: omschakelbaar via de keuzelijst -->
     <link rel="stylesheet" id="theme" href="" />
-
-    <style>
-      /* Demo-componenten — lezen UITSLUITEND het app-contract (--color-*/--font-*). */
-      body {
-        font-family: var(--font-body);
-        color: var(--color-text);
-        background: var(--color-bg);
-        margin: 0;
-        padding: 32px clamp(16px, 5vw, 64px);
-        line-height: 1.5;
-      }
-      h1,
-      h2 {
-        font-family: var(--font-heading);
-        color: var(--color-primary);
-      }
-      .switcher {
-        margin-bottom: 28px;
-        font-family: var(--font-body);
-      }
-      .switcher select {
-        font: inherit;
-        padding: 6px 10px;
-        border: 1px solid var(--color-border);
-        border-radius: var(--border-radius);
-      }
-      .button {
-        font: inherit;
-        font-family: var(--font-body);
-        background: var(--color-primary);
-        color: var(--color-on-primary);
-        border: none;
-        border-radius: var(--border-radius);
-        padding: 10px 18px;
-        cursor: pointer;
-      }
-      .button:hover {
-        background: var(--color-primary-dark);
-      }
-      .button--secondary {
-        background: transparent;
-        color: var(--color-primary);
-        border: 2px solid var(--color-primary);
-      }
-      a {
-        color: var(--color-secondary);
-      }
-      .card {
-        border: 1px solid var(--color-border);
-        border-radius: var(--border-radius);
-        padding: 20px;
-        max-width: 420px;
-        margin-top: 20px;
-        background: var(--color-bg);
-      }
-      :focus-visible {
-        outline: 3px solid var(--color-focus);
-        outline-offset: 2px;
-        background: var(--color-focus-bg);
-      }
-      .row {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-        align-items: center;
-      }
-    </style>
   </head>
   <body>
-    <div class="switcher">
-      <label
-        >Thema:
-        <select id="theme-select">
-          <option value="">Geen thema (standaarden uit app-contract)</option>
-          <option value="./themes/utrecht.css">Lichtgewicht — Gemeente Utrecht (--brand-*)</option>
-          <option value="./themes/_demo-basis-stub.css">Officieel NLDS Basis-thema (--basis-*)</option>
-        </select>
-      </label>
+    <svg style="position: absolute; width: 0; height: 0" aria-hidden="true">
+      <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><rect x="14" y="14" width="6" height="6"/></symbol>
+      <symbol id="i-clip" viewBox="0 0 24 24"><rect x="6" y="4.5" width="12" height="16"/><path d="M9 4.5h6v2.5H9z"/><path d="m8.5 12 2 2 4-4.5"/></symbol>
+      <symbol id="i-checks" viewBox="0 0 24 24"><path d="m4 7 2 2 4-5"/><path d="m4 17 2 2 4-5"/><path d="M13 7h7"/><path d="M13 17h7"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13"/><path d="m4 7 8 6 8-6"/></symbol>
+      <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3.5 7.5h6l2 3h9v8h-17z"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 20a7 7 0 0 1 14 0"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></symbol>
+    </svg>
+
+    <header class="masthead">
+      <div class="masthead__inner">
+        <a class="masthead__brand" href="#">MijnOverheid</a>
+        <span class="masthead__spacer"></span>
+        <a class="masthead__user" href="#"><svg class="icon"><use href="#i-user"/></svg>Jeroen van Drouwen</a>
+        <a href="#">Uitloggen</a>
+        <label class="switcher">Huisstijl
+          <select id="theme-select">
+            <option value="">Rijksoverheid</option>
+            <option value="./themes/utrecht.css">Gemeente Utrecht (--brand-*)</option>
+            <option value="./themes/denhaag.css">Gemeente Den Haag (--brand-*)</option>
+            <option value="./themes/_demo-basis-stub.css">Gemeente Veenendaal (NLDS Basis)</option>
+          </select>
+        </label>
+      </div>
+    </header>
+
+    <nav class="breadcrumb" aria-label="Kruimelpad">Home › Mijn omgeving</nav>
+
+    <div class="layout">
+      <aside class="sidenav" aria-label="Mijn omgeving">
+        <ul>
+          <li><a href="#" class="is-current"><svg class="icon"><use href="#i-grid"/></svg><span>Home</span></a></li>
+          <li><a href="#"><svg class="icon"><use href="#i-clip"/></svg><span>Nabestaandendossier</span></a></li>
+          <li><a href="#"><svg class="icon"><use href="#i-checks"/></svg><span>Mijn taken</span></a></li>
+          <li><a href="#"><svg class="icon"><use href="#i-mail"/></svg><span>Mijn berichten</span><span class="sidenav__badge">4</span></a></li>
+          <li><a href="#"><svg class="icon"><use href="#i-folder"/></svg><span>Mijn zaken</span></a></li>
+          <li><a href="#"><svg class="icon"><use href="#i-user"/></svg><span>Mijn gegevens</span></a></li>
+        </ul>
+      </aside>
+
+      <main>
+        <h1>Hallo Jeroen van Drouwen</h1>
+        <p class="intro">
+          Deze hele pagina bevat alleen <strong>eigen componenten</strong> die uitsluitend het
+          app-contract lezen (<code>--color-*</code>, <code>--font-*</code>). Kies rechtsboven een
+          huisstijl: zowel een lichtgewicht <code>--brand-*</code>-thema als een officieel
+          <code>--basis-*</code> NLDS-thema stuurt dezelfde componenten.
+        </p>
+
+        <a class="dossier" href="#">
+          <span class="dossier__icon"><svg class="icon" style="width:26px;height:26px"><use href="#i-clip"/></svg></span>
+          <span>
+            <span class="dossier__title">Nabestaandendossier</span>
+            <span>Na het overlijden van uw partner Cees moet er veel geregeld worden. Bekijk gebundeld wat er al automatisch is geregeld en wat nog uw aandacht vraagt.</span>
+          </span>
+        </a>
+
+        <section class="section">
+          <h2>Mijn taken</h2>
+          <a class="section__link" href="#">Bekijk alle taken (4) <svg class="icon" style="width:18px;height:18px"><use href="#i-arrow"/></svg></a>
+          <div class="panel">
+            <a class="task" href="#">
+              <span class="task__main"><span class="task__title">Contactpersoon doorgeven aan de Belastingdienst</span><span class="task__org">Belastingdienst</span></span>
+              <span class="task__deadline">vóór 2 juli 2026</span>
+              <span class="task__arrow"><svg class="icon" style="width:22px;height:22px"><use href="#i-arrow"/></svg></span>
+            </a>
+            <a class="task" href="#">
+              <span class="task__main"><span class="task__title">Aanslag waterschapsbelasting betalen</span><span class="task__org">Waterschap</span></span>
+              <span class="task__deadline">vóór 7 augustus 2026</span>
+              <span class="task__arrow"><svg class="icon" style="width:22px;height:22px"><use href="#i-arrow"/></svg></span>
+            </a>
+            <a class="task" href="#">
+              <span class="task__main"><span class="task__title">Terugvordering zorgtoeslag — betalen of bezwaar <span class="task__pill">Ingevuld door AI</span></span><span class="task__org">Dienst Toeslagen</span></span>
+              <span class="task__deadline">vóór 18 juli 2026</span>
+              <span class="task__arrow"><svg class="icon" style="width:22px;height:22px"><use href="#i-arrow"/></svg></span>
+            </a>
+            <a class="task" href="#">
+              <span class="task__main"><span class="task__title">Aangifte erfbelasting indienen <span class="task__pill">Ingevuld door AI</span></span><span class="task__org">Belastingdienst</span></span>
+              <span class="task__deadline">vóór 28 april 2027</span>
+              <span class="task__arrow"><svg class="icon" style="width:22px;height:22px"><use href="#i-arrow"/></svg></span>
+            </a>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Mijn lopende zaken</h2>
+          <a class="section__link" href="#">Bekijk alle zaken (10) <svg class="icon" style="width:18px;height:18px"><use href="#i-arrow"/></svg></a>
+          <div class="cards">
+            <a class="card" href="#"><span class="card__title">Aanvraag subsidie geluidisolatie</span><span class="card__id">ZK-29124 <svg class="icon"><use href="#i-arrow"/></svg></span></a>
+            <a class="card" href="#"><span class="card__title">WMO-melding</span><span class="card__id">ZK-02612 <svg class="icon"><use href="#i-arrow"/></svg></span></a>
+            <a class="card" href="#"><span class="card__title">Aanvraag parkeervergunning</span><span class="card__id">ZK-02599 <svg class="icon"><use href="#i-arrow"/></svg></span></a>
+          </div>
+        </section>
+
+        <p style="margin-top: 28px; display: flex; gap: 12px">
+          <a class="btn" href="#">Alle taken</a>
+          <a class="btn btn--ghost" href="#">Mijn berichten</a>
+        </p>
+
+        <section class="faq">
+          <h2>Veelgestelde vragen</h2>
+          <details>
+            <summary>Ik heb een vraag over de inhoud van een bericht.</summary>
+            <div class="faq__answer">MijnOverheid kan u niet helpen bij de inhoud van berichten. Neem contact op met de organisatie waarvan u het bericht heeft ontvangen; de contactgegevens staan in de bijlage.</div>
+          </details>
+          <details>
+            <summary>Hoe weet ik wat er al automatisch is geregeld?</summary>
+            <div class="faq__answer">In uw Nabestaandendossier ziet u per onderwerp of er nog actie nodig is of dat het al automatisch is geregeld.</div>
+          </details>
+          <details>
+            <summary>Bij wie kan ik terecht voor hulp?</summary>
+            <div class="faq__answer">Bel 1400 (ma–vr 8.00–20.00 uur) of stel uw vraag via vragen@mijn.overheid.nl.</div>
+          </details>
+          <a class="faq__all" href="#">Bekijk alle veelgestelde vragen <svg class="icon" style="width:18px;height:18px"><use href="#i-arrow"/></svg></a>
+        </section>
+      </main>
     </div>
 
-    <h1>Mijn gemeente</h1>
-    <p>
-      Deze pagina bevat alleen eigen componenten. Ze lezen uitsluitend het app-contract
-      (<code>--color-*</code>, <code>--font-*</code>). Wissel hierboven van thema: zowel een lichtgewicht
-      <code>--brand-*</code>-bestand als een officieel <code>--basis-*</code>-thema stuurt dezelfde app.
-    </p>
-
-    <div class="row">
-      <button class="button">Primaire knop</button>
-      <button class="button button--secondary">Secundaire knop</button>
-      <a href="#">Een link</a>
-    </div>
-
-    <div class="card">
-      <h2>Een kaart</h2>
-      <p>Rand, radius en koptekst volgen het actieve thema. <a href="#">Lees meer</a>.</p>
-    </div>
+    <footer class="footer">
+      <div class="footer__inner">
+        <section>
+          <h2>Contact</h2>
+          <p>Bel 1400 maandag tot en met vrijdag van 8.00 tot 20.00 uur of stel uw vraag via vragen@mijn.overheid.nl</p>
+        </section>
+        <nav aria-label="Footer">
+          <a href="#">Over MijnOverheid</a>
+          <a href="#">Nieuwsbrief</a>
+          <a href="#">Toegankelijkheid</a>
+        </nav>
+        <nav aria-label="Juridisch">
+          <a href="#">Bescherming persoonsgegevens</a>
+          <a href="#">Gebruikersvoorwaarden</a>
+          <a href="#">Proclaimer</a>
+        </nav>
+      </div>
+    </footer>
 
     <script>
       const sel = document.getElementById('theme-select');

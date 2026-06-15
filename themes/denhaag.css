@@ -1,0 +1,14 @@
+/* ==========================================================================
+   Lichtgewicht gemeentethema — Gemeente Den Haag (voorbeeld, Route A)
+   ========================================================================== */
+
+:root {
+  --brand-primary: #008542; /* Den Haag-groen */
+  --brand-primary-dark: #00632f;
+  --brand-secondary: #007a98;
+  --brand-accent: #d9156b; /* roze pop, contrasteert met groen */
+  --brand-soft: #e6f3ec;
+  --brand-page: #f1f5f2;
+  --brand-footer: #00401f;
+  --brand-border-radius: 8px; /* rondere hoeken */
+}
