@@ -63,7 +63,7 @@ a { color: var(--color-secondary); }
 :focus-visible { outline: 2px solid var(--color-focus); background: var(--color-focus-bg); }
 ```
 
-Open **`demo.html`** om alle drie de scenario's naast elkaar te zien.
+Open **`index.html`** om alle drie de scenario's naast elkaar te zien.
 
 ## De `--basis-*`-namen die dit gebruikt
 
