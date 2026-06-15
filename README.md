@@ -3,6 +3,8 @@
 > Een voorstel: hoe je een eigen-componenten-app lichtgewicht thematiseerbaar maakt
 > én interoperabel houdt met de officiële NL Design System-thema's van andere overheden.
 
+[Demo](https://joepio.github.io/nlds-light/)
+
 ## Het probleem
 
 NLDS-thema's worden geleverd als design-tokens (JSON → CSS-variabelen). Dat is krachtig,
