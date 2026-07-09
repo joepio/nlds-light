@@ -1,16 +1,18 @@
 /* ==========================================================================
    DEMO — een "officieel NLDS Basis-thema" zoals een gemeente dat zou leveren.
    --------------------------------------------------------------------------
-   Let op: dit zet ALLEEN officiële --basis-* tokens (géén --brand-*). Het
-   bewijst dat de app een echt NLDS Basis-thema automatisch oppakt via laag 2
-   van de fallback-keten. (Een echt thema zet honderden tokens; hier een
+   Zet vrijwel uitsluitend officiële --basis-* tokens: het bewijst dat de app
+   een echt NLDS Basis-thema automatisch oppakt via laag 2 van de
+   fallback-keten. (Een echt thema zet honderden tokens; hier een
    representatieve set — Gemeente Veenendaal, paars.)
 
-   Wat NIET in NLDS Basis zit (pop-kleur, footer) valt terug op de app-default
-   — precies de eerlijke grens tussen ecosysteem-token en eigen extensie.
+   Alleen de tokens die NIET in NLDS Basis bestaan (de pop/accent-extensie)
+   staan als --brand-* — precies de eerlijke grens tussen ecosysteem-token
+   en eigen extensie. Wat verder ontbreekt (footer) valt terug op de
+   app-default.
    ========================================================================== */
 
-:root {
+[data-theme='basis'] {
   --basis-text-font-family-default: 'Trebuchet MS', system-ui, sans-serif;
   --basis-heading-font-family: 'Trebuchet MS', system-ui, sans-serif;
 
@@ -27,4 +29,8 @@
   --basis-color-default-border-subtle: #e4d6ec;
 
   --basis-border-radius-md: 14px;
+
+  /* Extensies zonder Basis-equivalent */
+  --brand-accent: #f5a623; /* amber als contrasterende pop op paars */
+  --brand-on-accent: #1a1a1a;
 }

@@ -35,6 +35,11 @@ themes/<gemeente>.css   ← optioneel. De gemeente zet --brand-* (licht) óf lev
                           volledig NLDS Basis-thema dat --basis-* zet. Beide werken.
 ```
 
+Elk thema staat in een `[data-theme='<slug>']`-blok. Je kunt dus álle thema's tegelijk
+laden; alleen het blok van het actieve `data-theme` op `<html>` is van kracht, en
+wisselen is één regel: `document.documentElement.dataset.theme = 'utrecht'`.
+Geen `data-theme` = de hardcoded standaarden (Rijkshuisstijl).
+
 Fallback-keten per variabele:
 
 ```css
@@ -54,18 +59,21 @@ Drie scenario's, één app:
 Als package (git-dependency, geen npm-publicatie nodig):
 
 ```sh
-pnpm add github:joepio/nlds-light#v0.1.1
+pnpm add github:joepio/nlds-light#v0.2.0
 ```
 
 ```js
 import 'nlds-light/app-contract.css';
+import 'nlds-light/themes/utrecht.css';
 ```
 
 Of los, via `<link>`:
 
 ```html
-<link rel="stylesheet" href="app-contract.css" />
-<link rel="stylesheet" href="themes/utrecht.css" /> <!-- of een NLDS Basis-thema -->
+<html data-theme="utrecht">
+  ...
+  <link rel="stylesheet" href="app-contract.css" />
+  <link rel="stylesheet" href="themes/utrecht.css" /> <!-- of een NLDS Basis-thema -->
 ```
 
 In je componenten:

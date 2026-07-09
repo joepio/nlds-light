@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="./app-contract.css" />
     <!-- 2. Componenten (lezen alleen het contract) -->
     <link rel="stylesheet" href="./demo.css" />
-    <!-- 3. Gemeentethema: omschakelbaar via de keuzelijst -->
-    <link rel="stylesheet" id="theme" href="" />
+    <!-- 3. Gemeentethema's: allemaal geladen; alleen het blok van het actieve
+         data-theme (op <html>) is van kracht -->
+    <link rel="stylesheet" href="./themes/utrecht.css" />
+    <link rel="stylesheet" href="./themes/denhaag.css" />
+    <link rel="stylesheet" href="./themes/_demo-basis-stub.css" />
   </head>
   <body>
     <svg style="position: absolute; width: 0; height: 0" aria-hidden="true">
@@ -31,9 +34,9 @@
         <label class="switcher">Huisstijl
           <select id="theme-select">
             <option value="">Rijksoverheid</option>
-            <option value="./themes/utrecht.css">Gemeente Utrecht (--brand-*)</option>
-            <option value="./themes/denhaag.css">Gemeente Den Haag (--brand-*)</option>
-            <option value="./themes/_demo-basis-stub.css">Gemeente Veenendaal (NLDS Basis)</option>
+            <option value="utrecht">Gemeente Utrecht (--brand-*)</option>
+            <option value="denhaag">Gemeente Den Haag (--brand-*)</option>
+            <option value="basis">Gemeente Veenendaal (NLDS Basis)</option>
           </select>
         </label>
       </div>
@@ -152,9 +155,9 @@
 
     <script>
       const sel = document.getElementById('theme-select');
-      const link = document.getElementById('theme');
       sel.addEventListener('change', () => {
-        link.href = sel.value;
+        if (sel.value) document.documentElement.dataset.theme = sel.value;
+        else delete document.documentElement.dataset.theme;
       });
     </script>
   </body>

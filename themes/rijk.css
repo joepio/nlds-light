@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Lichtgewicht thema — Rijksoverheid / MijnOverheid (Route A)
+   Gelijk aan de hardcoded defaults in app-contract.css, maar expliciet —
+   zodat een app met meerdere thema's ook terug kán schakelen naar Rijk.
+   Het font wordt niet meegeleverd; de app moet zelf een @font-face voor
+   'Rijksoverheid Sans' laden, anders valt het terug op system-ui.
+   ========================================================================== */
+
+[data-theme='rijk'] {
+  --brand-font-body: 'Rijksoverheid Sans', system-ui, sans-serif;
+  --brand-font-heading: 'Rijksoverheid Sans', system-ui, sans-serif;
+  --brand-primary: #154273;
+  --brand-primary-dark: #0b3060;
+  --brand-secondary: #154273;
+  --brand-accent: #d74085;
+  --brand-soft: #e5eff7;
+  --brand-page: #f3f3f3;
+  --brand-footer: #535353;
+  --brand-border-radius: 2px;
+}

@@ -1,6 +1,6 @@
 {
   "name": "nlds-light",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Lichtgewicht NLDS token-contract: --brand-* (merkessentie) → --basis-* (NLDS Basis) → Rijkshuisstijl-default",
   "repository": {
     "type": "git",

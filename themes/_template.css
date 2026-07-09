@@ -1,29 +1,40 @@
 /* ==========================================================================
    Lichtgewicht gemeentethema — SJABLOON
    --------------------------------------------------------------------------
-   Kopieer dit bestand naar <gemeente>.css en vul de waarden in. Laat weg wat
-   je niet nodig hebt; alles heeft een verstandige standaard in app-contract.css.
-   Laad dit ná app-contract.css.
+   Kopieer dit bestand naar <gemeente>.css, vervang <slug> door je eigen
+   naam en vul de waarden in. Laat weg wat je niet nodig hebt; alles heeft
+   een verstandige standaard in app-contract.css. Laad dit ná
+   app-contract.css en zet data-theme="<slug>" op <html>.
    ========================================================================== */
 
-:root {
-  /* Lettertypen */
+[data-theme='<slug>'] {
+  /* Lettertypen (niet meeleveren — de app laadt zelf de @font-face) */
   --brand-font-body: ; /* bv. "Rijksoverheid Sans", system-ui, sans-serif */
   --brand-font-heading: ; /* leeg = zelfde als body */
 
-  /* Primaire merkkleur (knoppen, nadruk) */
+  /* Primaire merkkleur (knoppen, koppen, actieve nav) */
   --brand-primary: ; /* bv. #154273 */
-  --brand-primary-dark: ; /* donkerdere tint voor hover/active; leeg = zelfde */
+  --brand-primary-dark: ; /* donkerdere tint voor hover/active */
   --brand-on-primary: ; /* tekstkleur óp primair; leeg = #ffffff */
 
-  /* Secundaire merkkleur (links, accenten) */
-  --brand-secondary: ; /* bv. #d52b1e */
-  --brand-secondary-dark: ;
+  /* Secundaire merkkleur (links) */
+  --brand-secondary: ; /* bv. #24578f */
+
+  /* Pop/accent — ALLEEN voor zeer belangrijke UI (notificatie-teller) */
+  --brand-accent: ; /* bv. #ffcb00 */
+  --brand-on-accent: ; /* donkere tekst op geel, wit op donker */
 
   /* Neutralen */
   --brand-text: ; /* tekstkleur; leeg = bijna-zwart */
-  --brand-bg: ; /* paginakleur; leeg = wit */
+  --brand-muted: ; /* gedempte tekst */
+  --brand-page: ; /* paginakleur; leeg = lichtgrijs */
+  --brand-panel: ; /* verhoogd vlak; leeg = wit */
+  --brand-soft: ; /* subtiele merktint: actief/banner */
   --brand-border: ; /* randkleur */
+  --brand-border-soft: ; /* zachte randkleur */
+
+  /* Footer-achtergrond */
+  --brand-footer: ;
 
   /* Focus (toegankelijkheid — laat dit goed zichtbaar) */
   --brand-focus: ;
@@ -31,4 +42,8 @@
 
   /* Vorm */
   --brand-border-radius: ; /* bv. 0 voor scherp, 8px voor rond */
+
+  /* Status-kleuren (--brand-ok-*, --brand-warn-*, --brand-alert*) kunnen
+     ook, maar laat ze bij voorkeur op de standaard: herkenbaar groen/
+     oranje/rood is belangrijker dan huisstijl. */
 }
