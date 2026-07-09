@@ -49,6 +49,18 @@ Drie scenario's, één app:
 
 ## Gebruik
 
+Als package (git-dependency, geen npm-publicatie nodig):
+
+```sh
+pnpm add github:joepio/nlds-light#v0.1.0
+```
+
+```js
+import 'nlds-light/app-contract.css';
+```
+
+Of los, via `<link>`:
+
 ```html
 <link rel="stylesheet" href="app-contract.css" />
 <link rel="stylesheet" href="themes/utrecht.css" /> <!-- of een NLDS Basis-thema -->
@@ -75,15 +87,20 @@ Gemeten uit `@nl-design-system-unstable/voorbeeld-design-tokens` (v10):
 | `--color-primary-dark` | `--basis-color-action-1-bg-hover` |
 | `--color-on-primary` | `--basis-color-action-1-color-default` |
 | `--color-secondary` | `--basis-color-action-2-bg-default` |
-| `--color-secondary-dark` | `--basis-color-action-2-bg-hover` |
 | `--color-text` | `--basis-color-default-color-default` |
-| `--color-bg` | `--basis-color-default-bg-default` |
+| `--color-muted` | `--basis-color-default-color-subtle` |
+| `--color-page` | `--basis-color-default-bg-default` |
+| `--color-soft` | `--basis-color-action-1-bg-subtle` |
 | `--color-border` | `--basis-color-default-border-default` |
+| `--color-border-soft` | `--basis-color-default-border-subtle` |
 | `--color-focus` | `--basis-focus-color` |
 | `--color-focus-bg` | `--basis-focus-background-color` |
 | `--font-body` | `--basis-text-font-family-default` |
 | `--font-heading` | `--basis-heading-font-family` |
 | `--border-radius` | `--basis-border-radius-md` |
+| `--ok-bg` / `--ok-fg` | `--basis-color-positive-bg-subtle` / `-color-default` |
+| `--warn-bg` / `--warn-fg` | `--basis-color-warning-bg-subtle` / `-color-default` |
+| `--alert-bg` / `--alert` | `--basis-color-negative-bg-subtle` / `-color-default` |
 
 ## Eerlijke kanttekeningen
 

@@ -13,9 +13,9 @@
    Laad dit bestand eerst, daarna optioneel een gemeentethema. Een expliciete
    --brand-* wint; levert de gemeente alleen --basis-*, dan pakt laag 2 het op.
 
-   15 tokens mappen op de officiële NLDS Basis-laag (interoperabel);
-   --color-accent (pop), --color-footer en --color-panel zijn bewuste extensies
-   zonder eenduidig NLDS-equivalent.
+   21 tokens mappen op de officiële NLDS Basis-laag (interoperabel);
+   --color-accent (pop), --color-footer, --color-panel, --radius-pill en de
+   vlag/succes-tokens zijn bewuste extensies zonder eenduidig NLDS-equivalent.
    ========================================================================== */
 
 :root {
@@ -53,4 +53,20 @@
 
   /* Vorm */
   --border-radius: var(--brand-border-radius, var(--basis-border-radius-md, 2px));
+  --radius-pill: 999px; /* volledig ronde hoeken: badges, pills, ronde knoppen */
+
+  /* Status/feedback — mapt op de NLDS Basis feedback-rollen (positive/warning/negative).
+     Achtergrond = bg-subtle (pasteltint), tekst = color-default (donker genoeg erop). */
+  --ok-bg: var(--brand-ok-bg, var(--basis-color-positive-bg-subtle, #dcf0e4));
+  --ok-fg: var(--brand-ok-fg, var(--basis-color-positive-color-default, #1c5b34));
+  --warn-bg: var(--brand-warn-bg, var(--basis-color-warning-bg-subtle, #fde9db));
+  --warn-fg: var(--brand-warn-fg, var(--basis-color-warning-color-default, #8a3d16));
+  --alert: var(--brand-alert, var(--basis-color-negative-color-default, #d53b2a));
+  --alert-bg: var(--brand-alert-bg, var(--basis-color-negative-bg-subtle, #fdeceb));
+
+  /* Vlag/attentie (gemarkeerde rijen) en afgeronde stappen — extensies
+     zonder eenduidig NLDS-equivalent */
+  --flag-bg: var(--brand-flag-bg, #fdf1e7);
+  --flag-border: var(--brand-flag-border, #d98a3d);
+  --color-success: var(--brand-success, #22c55e);
 }
