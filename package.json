@@ -1,0 +1,27 @@
+{
+  "name": "nlds-light",
+  "version": "0.1.1",
+  "description": "Lichtgewicht NLDS token-contract: --brand-* (merkessentie) → --basis-* (NLDS Basis) → Rijkshuisstijl-default",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joepio/nlds-light.git"
+  },
+  "files": [
+    "app-contract.css",
+    "themes"
+  ],
+  "exports": {
+    ".": "./app-contract.css",
+    "./app-contract.css": "./app-contract.css",
+    "./themes/*": "./themes/*"
+  },
+  "style": "app-contract.css",
+  "keywords": [
+    "nl-design-system",
+    "nlds",
+    "design-tokens",
+    "css",
+    "theming",
+    "overheid"
+  ]
+}
