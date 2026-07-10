@@ -1,20 +1,20 @@
 /* ==========================================================================
-   Lichtgewicht gemeentethema — Gemeente Den Haag (voorbeeld, Route A)
+   Lichtgewicht gemeentethema — Gemeente Den Haag (voorbeeld)
    Laad dit ná app-contract.css en zet data-theme="denhaag" op <html>.
    TheSans wordt niet meegeleverd (commercieel gelicenseerd); de app moet
    zelf een @font-face laden, anders valt het terug op system-ui.
    ========================================================================== */
 
 [data-theme='denhaag'] {
-  --brand-font-body: 'TheSans', system-ui, sans-serif;
-  --brand-font-heading: 'TheSans', system-ui, sans-serif;
-  --brand-primary: #008542; /* Den Haag-groen */
-  --brand-primary-dark: #00632f;
-  --brand-secondary: #007a98;
-  --brand-accent: #ffb611; /* Den Haag-geel als pop-kleur */
-  --brand-on-accent: #1a1a1a; /* donkere tekst op geel */
-  --brand-soft: #e6f3ec;
-  --brand-page: #ffffff;
-  --brand-footer: #3a3a3a; /* grijze footer i.p.v. donkergroen */
-  --brand-border-radius: 8px; /* rondere hoeken */
+  --font-body: 'TheSans', system-ui, sans-serif;
+  --font-heading: 'TheSans', system-ui, sans-serif;
+  --color-primary: #008542; /* Den Haag-groen */
+  --color-primary-dark: #00632f;
+  --color-secondary: #007a98;
+  --color-accent: #ffb611; /* Den Haag-geel als pop-kleur */
+  --color-on-accent: #1a1a1a; /* donkere tekst op geel */
+  --color-soft: #e6f3ec;
+  --color-page: #ffffff;
+  --color-footer: #3a3a3a; /* grijze footer i.p.v. donkergroen */
+  --border-radius: 8px; /* rondere hoeken */
 }

@@ -1,7 +1,7 @@
 {
   "name": "nlds-light",
-  "version": "0.2.0",
-  "description": "Lichtgewicht NLDS token-contract: --brand-* (merkessentie) → --basis-* (NLDS Basis) → Rijkshuisstijl-default",
+  "version": "0.3.0",
+  "description": "Lichtgewicht NLDS token-contract: app-tokens met fallback op --basis-* (NLDS Basis) en Rijkshuisstijl-defaults; thema's overschrijven direct",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joepio/nlds-light.git"

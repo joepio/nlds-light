@@ -2,48 +2,49 @@
    Lichtgewicht gemeentethema — SJABLOON
    --------------------------------------------------------------------------
    Kopieer dit bestand naar <gemeente>.css, vervang <slug> door je eigen
-   naam en vul de waarden in. Laat weg wat je niet nodig hebt; alles heeft
-   een verstandige standaard in app-contract.css. Laad dit ná
-   app-contract.css en zet data-theme="<slug>" op <html>.
+   naam en vul de waarden in. VERWIJDER regels die je niet invult (een lege
+   waarde breekt de fallback); alles heeft een verstandige standaard in
+   app-contract.css. Laad dit ná app-contract.css en zet
+   data-theme="<slug>" op <html>.
    ========================================================================== */
 
 [data-theme='<slug>'] {
   /* Lettertypen (niet meeleveren — de app laadt zelf de @font-face) */
-  --brand-font-body: ; /* bv. "Rijksoverheid Sans", system-ui, sans-serif */
-  --brand-font-heading: ; /* leeg = zelfde als body */
+  --font-body: ; /* bv. "Rijksoverheid Sans", system-ui, sans-serif */
+  --font-heading: ; /* leeg = zelfde als body */
 
   /* Primaire merkkleur (knoppen, koppen, actieve nav) */
-  --brand-primary: ; /* bv. #154273 */
-  --brand-primary-dark: ; /* donkerdere tint voor hover/active */
-  --brand-on-primary: ; /* tekstkleur óp primair; leeg = #ffffff */
+  --color-primary: ; /* bv. #154273 */
+  --color-primary-dark: ; /* donkerdere tint voor hover/active */
+  --color-on-primary: ; /* tekstkleur óp primair; standaard #ffffff */
 
   /* Secundaire merkkleur (links) */
-  --brand-secondary: ; /* bv. #24578f */
+  --color-secondary: ; /* bv. #24578f */
 
   /* Pop/accent — ALLEEN voor zeer belangrijke UI (notificatie-teller) */
-  --brand-accent: ; /* bv. #ffcb00 */
-  --brand-on-accent: ; /* donkere tekst op geel, wit op donker */
+  --color-accent: ; /* bv. #ffcb00 */
+  --color-on-accent: ; /* donkere tekst op geel, wit op donker */
 
   /* Neutralen */
-  --brand-text: ; /* tekstkleur; leeg = bijna-zwart */
-  --brand-muted: ; /* gedempte tekst */
-  --brand-page: ; /* paginakleur; leeg = lichtgrijs */
-  --brand-panel: ; /* verhoogd vlak; leeg = wit */
-  --brand-soft: ; /* subtiele merktint: actief/banner */
-  --brand-border: ; /* randkleur */
-  --brand-border-soft: ; /* zachte randkleur */
+  --color-text: ; /* tekstkleur; standaard bijna-zwart */
+  --color-muted: ; /* gedempte tekst */
+  --color-page: ; /* paginakleur; standaard lichtgrijs */
+  --color-panel: ; /* verhoogd vlak; standaard wit */
+  --color-soft: ; /* subtiele merktint: actief/banner/hover */
+  --color-border: ; /* randkleur */
+  --color-border-soft: ; /* zachte randkleur */
 
   /* Footer-achtergrond */
-  --brand-footer: ;
+  --color-footer: ;
 
   /* Focus (toegankelijkheid — laat dit goed zichtbaar) */
-  --brand-focus: ;
-  --brand-focus-bg: ;
+  --color-focus: ;
+  --color-focus-bg: ;
 
   /* Vorm */
-  --brand-border-radius: ; /* bv. 0 voor scherp, 8px voor rond */
+  --border-radius: ; /* bv. 0 voor scherp, 8px voor rond */
 
-  /* Status-kleuren (--brand-ok-*, --brand-warn-*, --brand-alert*) kunnen
-     ook, maar laat ze bij voorkeur op de standaard: herkenbaar groen/
-     oranje/rood is belangrijker dan huisstijl. */
+  /* Status-kleuren (--ok-*, --warn-*, --alert*) kunnen ook, maar laat ze
+     bij voorkeur op de standaard: herkenbaar groen/oranje/rood is
+     belangrijker dan huisstijl. */
 }

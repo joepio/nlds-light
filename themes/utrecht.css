@@ -1,17 +1,17 @@
 /* ==========================================================================
-   Lichtgewicht gemeentethema — Gemeente Utrecht (voorbeeld, Route A)
-   Het ENIGE wat een gemeente hoeft te schrijven: een handvol --brand-*.
+   Lichtgewicht gemeentethema — Gemeente Utrecht (voorbeeld)
+   Het ENIGE wat een gemeente hoeft te schrijven: een handvol contract-tokens.
    Laad dit ná app-contract.css en zet data-theme="utrecht" op <html>.
    ========================================================================== */
 
 [data-theme='utrecht'] {
-  --brand-primary: #cc0100; /* Utrecht-rood */
-  --brand-primary-dark: #9c0000;
-  --brand-secondary: #24578f; /* blauwe links */
-  --brand-accent: #ffcb00; /* geel als pop-kleur */
-  --brand-on-accent: #1a1a1a; /* donkere tekst op geel */
-  --brand-soft: #fdeaea;
-  --brand-page: #f5f3f2;
-  --brand-footer: #1a1a1a;
-  --brand-border-radius: 0; /* scherpe hoeken */
+  --color-primary: #cc0100; /* Utrecht-rood */
+  --color-primary-dark: #9c0000;
+  --color-secondary: #24578f; /* blauwe links */
+  --color-accent: #ffcb00; /* geel als pop-kleur */
+  --color-on-accent: #1a1a1a; /* donkere tekst op geel */
+  --color-soft: #fdeaea;
+  --color-page: #f5f3f2;
+  --color-footer: #1a1a1a;
+  --border-radius: 0; /* scherpe hoeken */
 }

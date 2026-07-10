@@ -19,20 +19,22 @@ maar zélf componenten bouwt, wil dat niet als theming-contract.
 | --- | --- | --- | --- |
 | **Component-tokens** | `--utrecht-button-…`, `--denhaag-…` | ~1.400 | Alleen wie hún componenten gebruikt |
 | **Basis (semantisch)** | `--basis-color-action-1-bg-default` | 611 | Iedereen — merk-agnostisch |
-| **Merkessentie** | `--brand-primary` | ~14 | Wat een gemeente wil invullen |
+| **Merkessentie** | `--color-primary` | ~14 | Wat een gemeente wil invullen |
 
 De component-laag mag je **volledig negeren** als je eigen componenten bouwt. De **Basis-laag**
 is de bestaande, merk-agnostische semantische laag — je interop-ankerpunt. Wat *niet* als nette
-losse laag bestaat is de **merkessentie**: een handvol kleuren + font + radius. Die laag voegt
-dit voorstel toe — als dunne adapter bóvenop Basis, niet als geïsoleerd eiland.
+losse laag bestaat is de **merkessentie**: een handvol kleuren + font + radius. Dit voorstel
+maakt die laag concreet als een klein app-contract dat op Basis terugvalt; een gemeentethema
+is niets meer dan het direct overschrijven van die contract-tokens.
 
 ## Hoe het werkt
 
 ```
 app-contract.css        ← levert je app mee. Je componenten lezen alleen --color-*/--font-*.
-                          Elke var leidt af uit: --brand-* → --basis-* → hardcoded default.
-themes/<gemeente>.css   ← optioneel. De gemeente zet --brand-* (licht) óf levert een
-                          volledig NLDS Basis-thema dat --basis-* zet. Beide werken.
+                          Elke var leidt af uit: --basis-* → hardcoded default.
+themes/<gemeente>.css   ← optioneel. De gemeente overschrijft de contract-tokens direct
+                          (licht) óf levert een volledig NLDS Basis-thema dat --basis-*
+                          zet. Beide werken.
 ```
 
 Elk thema staat in een `[data-theme='<slug>']`-blok. Je kunt dus álle thema's tegelijk
@@ -40,12 +42,20 @@ laden; alleen het blok van het actieve `data-theme` op `<html>` is van kracht, e
 wisselen is één regel: `document.documentElement.dataset.theme = 'utrecht'`.
 Geen `data-theme` = de hardcoded standaarden (Rijkshuisstijl).
 
-Fallback-keten per variabele:
+Per variabele geldt: het contract valt terug op NLDS Basis, en een lichtgewicht
+thema wint simpelweg via de CSS-cascade:
 
 ```css
---color-primary: var(--brand-primary,                 /* 1. lichtgewicht override   */
-                 var(--basis-color-action-1-bg-default,/* 2. officieel NLDS-thema     */
-                 #154273));                            /* 3. veilige standaard        */
+/* app-contract.css */
+:root {
+  --color-primary: var(--basis-color-action-1-bg-default, /* 1. officieel NLDS-thema */
+                   #154273);                              /* 2. veilige standaard    */
+}
+
+/* themes/utrecht.css — wint van :root omdat het later laadt */
+[data-theme='utrecht'] {
+  --color-primary: #cc0100;
+}
 ```
 
 Drie scenario's, één app:
@@ -59,7 +69,7 @@ Drie scenario's, één app:
 Als package (git-dependency, geen npm-publicatie nodig):
 
 ```sh
-pnpm add github:joepio/nlds-light#v0.2.0
+pnpm add github:joepio/nlds-light#v0.3.0
 ```
 
 ```js
